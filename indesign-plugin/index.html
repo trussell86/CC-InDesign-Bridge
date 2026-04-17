@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CC Bridge</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, 'Adobe Clean', sans-serif;
+      font-size: 11px;
+      background: #2b2b2b;
+      color: #d4d4d4;
+      padding: 10px;
+      user-select: none;
+    }
+
+    h1 {
+      font-size: 12px;
+      font-weight: 600;
+      color: #e8e8e8;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 7px;
+    }
+
+    /* Status dot */
+    #dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: #666;
+      transition: background 0.3s;
+    }
+    #dot.connected    { background: #4caf50; box-shadow: 0 0 5px #4caf5088; }
+    #dot.connecting   { background: #ff9800; }
+    #dot.disconnected { background: #f44336; }
+
+    #status-text {
+      color: #aaa;
+      font-size: 11px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #3d3d3d;
+      margin: 8px 0;
+    }
+
+    .label {
+      color: #888;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 3px;
+    }
+
+    #last-cmd {
+      color: #c5c5c5;
+      font-size: 10px;
+      min-height: 14px;
+      word-break: break-all;
+    }
+
+    #cmd-count {
+      color: #888;
+      font-size: 10px;
+    }
+
+    button {
+      margin-top: 8px;
+      padding: 4px 10px;
+      font-size: 10px;
+      background: #444;
+      border: 1px solid #555;
+      color: #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover { background: #505050; }
+    button:active { background: #3a3a3a; }
+  </style>
+</head>
+<body>
+  <h1>CC Bridge</h1>
+
+  <div class="row">
+    <div id="dot" class="disconnected"></div>
+    <span id="status-text">Connecting…</span>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="label">Last command</div>
+  <div id="last-cmd">—</div>
+
+  <div class="row" style="margin-top:6px;">
+    <span class="label" style="margin:0;">Commands handled:</span>
+    <span id="cmd-count">0</span>
+  </div>
+
+  <button id="reconnect-btn">Reconnect</button>
+
+  <script src="main.js"></script>
+</body>
+</html>

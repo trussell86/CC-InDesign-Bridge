@@ -1,0 +1,27 @@
+{
+  "manifestVersion": 5,
+  "id": "com.consolidatedcredit.indesign-bridge",
+  "name": "CC InDesign Bridge",
+  "version": "1.0.0",
+  "main": "index.html",
+  "host": [
+    { "app": "ID", "minVersion": "18.0" }
+  ],
+  "entrypoints": [
+    {
+      "type": "panel",
+      "id": "mainPanel",
+      "label": "CC Bridge",
+      "minimumSize": { "width": 200, "height": 120 },
+      "preferredSize": { "width": 260, "height": 160 },
+      "maximumSize": { "width": 400, "height": 300 }
+    }
+  ],
+  "requiredPermissions": {
+    "network": {
+      "domains": ["ws://localhost", "http://localhost", "https://cdn2.debt.com"]
+    },
+    "localFileSystem": "full",
+    "allowCodeGenerationFromStrings": true
+  }
+}
